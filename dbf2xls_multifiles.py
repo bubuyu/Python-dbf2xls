@@ -29,17 +29,17 @@ def main():
 		#建立Excel工作簿工作表
 		book = xlwt.Workbook(encoding='gbk')
 		sheet = book.add_sheet('dbf2xls')
-		c = 0
-		r = 0
 		
 		#Excel工作表第一行写入dbf字段名
+		c = 0
+		r = 0
 		for fldnm in db.fieldNames:
 			sheet.write(0,c,fldnm)
 			c = c + 1
-		c = 0
-		r = 1
 		
 		#将dbf各项数据写入Excel
+		c = 0
+		r = 1
 		for rec in db:
 			for col in rec:
 				sheet.write(r,c,col)
