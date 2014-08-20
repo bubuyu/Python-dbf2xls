@@ -22,9 +22,9 @@ def main():
 	
 	#dbf2xls
 	for dbfile in dbfiles:
-		fullpath = fpath+os.sep.dbfile
+		fullpath = fpath+os.sep+dbfile
 		db = dbf.Dbf(fullpath)
-		exportname=filein[0:-3]+'xls' #xls文件与原dbf文件同名，保存在相同的路径中
+		exportname=fullpath[0:-3]+'xls' #xls文件与原dbf文件同名，保存在相同的路径中
 		
 		#建立Excel工作簿工作表
 		book = xlwt.Workbook(encoding='gbk')
@@ -48,7 +48,7 @@ def main():
 			c = 0
 		book.save(exportname)
 		print dbfile+'...OK'
-		input ('Press any key to continue.')
+	raw_input ('Press any key to continue.')
 		
 		
 if __name__ == '__main__':
