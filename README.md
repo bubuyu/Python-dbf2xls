@@ -1,4 +1,4 @@
-Python-dbf2xls
+dbf2xls
 ==============
 
 对python的认识基本上就是0，由于工作需要将dbf转换为xls，从github上找到borrob/dbf2csv，并由此修改而来。
