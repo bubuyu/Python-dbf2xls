@@ -10,3 +10,8 @@ dbf2xls
 1、dbfpy http://dbfpy.sourceforge.net
 
 2、xlwt http://www.python-excel.org/
+
+
+dbf2xls.py -- 单文件转换，输入文件路径
+
+dbf2xls_multifiles.py -- 多文件转换，转换所在路径下的全部dbf文件
