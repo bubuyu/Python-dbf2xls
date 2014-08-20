@@ -10,12 +10,10 @@ def main():
 	fpath = os.path.abspath('.')
 	files = os.listdir(fpath)
 	dbfiles=[]
-	i=0
 	for fname in files:
 		extname = os.path.splitext(fname)
 		if extname[1] == '.dbf':
 			dbfiles.append(fname)
-			i = i + 1
 	if dbfiles == []:
 		print ('Empty!')
 		exit()
