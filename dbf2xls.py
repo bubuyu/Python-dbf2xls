@@ -28,6 +28,8 @@ def main():
 	#将dbf各项数据写入Excel
 	for rec in db:
 		for col in rec:
+			if isinstance(col,str):
+				col = col.decode('gbk','ignore')
 			sheet.write(r,c,col)
 			c = c + 1
 		r = r + 1
