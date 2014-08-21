@@ -12,7 +12,7 @@ def main():
 	dbfiles=[]
 	for fname in files:
 		extname = os.path.splitext(fname)
-		if extname[1] == '.dbf':
+		if extname[1] == '.dbf' or extname[1] == '.DBF':
 			dbfiles.append(fname)
 	if dbfiles == []:
 		print ('Empty!')
@@ -23,6 +23,7 @@ def main():
 		fullpath = fpath+os.sep+dbfile
 		db = dbf.Dbf(fullpath)
 		exportname=fullpath[0:-3]+'xls' #xls文件与原dbf文件同名，保存在相同的路径中
+		print dbfile,
 		
 		#建立Excel工作簿工作表
 		book = xlwt.Workbook(encoding='gbk')
@@ -40,13 +41,15 @@ def main():
 		r = 1
 		for rec in db:
 			for col in rec:
+				if isinstance(col,str):
+					col = col.decode('gbk','ignore')
 				sheet.write(r,c,col)
 				c = c + 1
 			r = r + 1
 			c = 0
 		book.save(exportname)
-		print dbfile+'...OK'
-	raw_input ('Press any key to continue.')
+		print '...OK'
+	raw_input ('Done. Press any key to continue.')
 		
 		
 if __name__ == '__main__':
